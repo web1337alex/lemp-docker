@@ -2,7 +2,8 @@ version: "3.7"
 
 services:
   php:
-    image: php:8.3-fpm
+    build:
+      context: ./services/php
     volumes:
       - './src:/var/www/html'
 
@@ -17,3 +18,5 @@ services:
     image: mysql:8
     environment:
       - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - './services/volumes/mysql:/var/lib/mysql'
